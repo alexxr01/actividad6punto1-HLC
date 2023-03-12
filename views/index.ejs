@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Actividad 6.1 HLC</title>
+    <link rel="icon" type="image/x-icon" href="src/img/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <!-- Menú-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand">Actividad 6.1 HLC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        </div>
+    </nav>
+    <!-- Page Content-->
+    <div class="container px-4 px-lg-5">
+        <!-- Heading Row-->
+        <div class="row gx-4 gx-lg-5 align-items-center my-5">
+            <div class="col-lg-7">
+                <h1>Panel de usuario 🫵🏻</h1>
+                <p>Esta es tu zona privada, tienes el control de tu cuenta!</p>
+            </div>
+            <div class="col-lg-5">
+                <p><code>Opciones varias para el usuario...</code></p>
+                <a href="./"><button class="btn btn-dark">Volver al inicio</button></a>
+                <a href=""><button class="btn btn-outline-danger">Dar de baja</button></a>
+            </div>
+        </div>
+        <!-- Call to Action-->
+        <div class="card text-white bg-secondary my-5 py-4 text-center">
+            <div class="card-body">
+                <p class="text-white m-0">A continuación, veras las acciones disponibles para realizar en su cuenta.</p>
+            </div>
+        </div>
+        <!-- Content Row-->
+        <div class="row gx-4 gx-lg-5">
+            <!--
+                    CASILLA PARA EDITAR LA CONTRASEÑA
+                -->
+            <div class="col-md-4 mb-5">
+                <div class="card h-70">
+                    <div class="card-body">
+                        <h2 class="card-title">Cambiar contraseña</h2>
+                        <p class="card-text">Reestablece la contraseña de tu cuenta fácilmente.</p>
+                        <form class="card-body cardbody-color p-lg-5" action="src/funciones/reestablecer.php"
+                            method="POST">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" name="usuario" id="Usuario"
+                                    placeholder="Usuario a editar">
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" name="contrasenaantigua"
+                                    placeholder="Contraseña Antigua">
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" name="contrasenanueva"
+                                    placeholder="Nueva Contraseña">
+                            </div>
+                            <br>
+                            <button class="btn btn-dark">Aplicar cambios</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--
+                    CASILLA PARA AÑADIR UNA DESCRIPCIÓN A LA CUENTA
+                -->
+            <div class="col-md-4 mb-5">
+                <div class="card h-90">
+                    <div class="card-body">
+                        <h2 class="card-title">Añadir descripción</h2>
+                        <p>Añade información acerca de ti.</p>
+ 
+                        <form class="card-body cardbody-color p-lg-10" action="src/funciones/anadirdescripcion.php"
+                            method="POST">
+                            <div class="mb-3">
+                                <p>Establece una nueva descripción:</p>
+                                <textarea class="form-control" name="descripcioncuenta" rows="3"
+                                    placeholder="Añade una nueva descripción."></textarea>
+                            </div>
+                            <br>
+                            <button class="btn btn-dark">Actualizar información</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--
+                    CASILLA PARA SUBIR IMAGEN DE PERFIL AL USUARIO
+                -->
+            <div class="col-md-4 mb-5">
+                <div class="card h-70">
+                    <div class="card-body">
+                        <h2 class="card-title">Elegir imagen de perfil</h2>
+                        <p class="card-text">Tu perfil se verá mucho mejor!</p>
+                        <form class="card-body cardbody-color p-lg-10" action="src/funciones/anadiravatar.php"
+                            method="POST">
+                            <label class="form-label" for="avatar"></label>
+                            <input type="file" class="form-control" name="avatar" />
+                            <br>
+                            <button class="btn btn-dark">Actualizar avatar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JavaScripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+            var toastList = toastElList.map(function (toastEl) {
+                return new bootstrap.Toast(toastEl)
+            });
+            toastList.forEach(toast => toast.show());
+        });
+    </script>
+</body>
+
+</html>
